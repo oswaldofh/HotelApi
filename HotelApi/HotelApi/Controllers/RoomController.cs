@@ -56,10 +56,10 @@ namespace HotelApi.Controllers
                 _response.Messages.Add("No existen registros guardados");
                 return BadRequest(_response);
             }
-            var rooms = new List<RoomDto>();
+            var rooms = new List<InformationRoomDto>();
             foreach (var list in data)
             {
-                rooms.Add(_mapper.Map<RoomDto>(list));
+                rooms.Add(_mapper.Map<InformationRoomDto>(list));
             }
 
             return Ok(rooms);
@@ -86,7 +86,7 @@ namespace HotelApi.Controllers
                 _response.Messages.Add("No existe un registro con ese id");
                 return BadRequest(_response);
             }
-            var room = _mapper.Map<RoomDto>(data);
+            var room = _mapper.Map<InformationRoomDto>(data);
 
             _response.StatusCode = HttpStatusCode.OK;
             _response.IsSuccess = true;
@@ -114,7 +114,7 @@ namespace HotelApi.Controllers
                 _response.Messages.Add("No existe un registro con ese nombre");
                 return BadRequest(_response);
             }
-            var room = _mapper.Map<RoomDto>(data);
+            var room = _mapper.Map<InformationRoomDto>(data);
 
             _response.StatusCode = HttpStatusCode.OK;
             _response.IsSuccess = true;
@@ -169,7 +169,7 @@ namespace HotelApi.Controllers
 
                 await _repository.Save(room);
 
-                var roomDto = _mapper.Map<RoomDto>(room);
+                var roomDto = _mapper.Map<InformationRoomDto>(room);
 
                 _response.StatusCode = HttpStatusCode.Created;
                 _response.IsSuccess = true;
@@ -251,7 +251,7 @@ namespace HotelApi.Controllers
 
                 await _repository.Update(room);
 
-                var roomDto = _mapper.Map<RoomDto>(room);
+                var roomDto = _mapper.Map<InformationRoomDto>(room);
                 _response.StatusCode = HttpStatusCode.Created;
                 _response.IsSuccess = true;
                 _response.Messages.Add("se actualizo el registro correctamente");

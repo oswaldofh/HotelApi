@@ -1,7 +1,5 @@
 ﻿using HotelApi.Common.Enums;
 using HotelApi.Domain.Entities;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace HotelApi.Domain.DTOs

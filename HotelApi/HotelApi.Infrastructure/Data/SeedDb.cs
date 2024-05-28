@@ -1,5 +1,4 @@
 ﻿using HotelApi.Domain.Entities;
-using HotelApi.Domain.Repositories;
 
 namespace HotelApi.Infrastructure.Data
 {
@@ -8,7 +7,7 @@ namespace HotelApi.Infrastructure.Data
 
         private readonly DataContext _context;
 
-        public SeedDb(DataContext context, IUserRepository userRepository)
+        public SeedDb(DataContext context)
         {
             _context = context;
         }
