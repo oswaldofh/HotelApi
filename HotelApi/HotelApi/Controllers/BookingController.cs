@@ -171,7 +171,7 @@ namespace HotelApi.Controllers
                 booking.TotalValue = (decimal)(room.Price + valorIva);
                 booking.ValueIva = (decimal)valorIva;
                 await _repository.Save(booking);
-                /*
+                
                 ResponseEmail response = _mailRepository.SendMail(
                     $"{booking.FullName}",
                     booking.Email,
@@ -182,7 +182,7 @@ namespace HotelApi.Controllers
                     $"<br/> <p>Valor de iva : {booking.ValueIva} </p>" +
                     $"<br/> <p>Valor : {room.Price} </p>" +
                     $"<br/> <p>Valor total : {booking.TotalValue} </p>"
-                );*/
+                );
 
 
 
