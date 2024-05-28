@@ -40,12 +40,11 @@ namespace HotelApi.Controllers
 
 
         /// <summary>
-        /// Obtiene valores de todos los tipos de clientes
+        /// Obtiene todos los registros
         /// </summary>
         /// <response code="200"> Si se obtiene el listado</response>
         /// <response code="400">Si no encuentra la ruta</response> 
         /// <response code="403">Si la llamada no esta autenticada</response>
-        //[AllowAnonymous] //PARA QUE LO PUEDAN VER SIN AUTORIZACIÓN O SE PUEDE DEJAR EN BLANCO SIN ESTE CAMPO
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -104,7 +103,6 @@ namespace HotelApi.Controllers
         /// <response code="400">Si no encuentra la ruta</response> 
         /// <response code="403">Si la llamada no esta autenticada</response>
         /// <response code="404">Si no existe el registro</response>
-        //[HttpGet("{name}", Name = "GetRoomByName")]
         [HttpGet("GetRoomByNumber/{number}")]
         public async Task<IActionResult> GetRoomByNumber(string number)
         {
@@ -209,7 +207,6 @@ namespace HotelApi.Controllers
         /// <response code="400">Si la solicitud es incorrecta</response> 
         /// <response code="401">No tiene autorizacion para realizar la solicitud</response>
         /// <response code="500">Se ha producido un error interno en el servidor</response>
-        // [Authorize(Roles = "admin")]
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] RoomDto model)
         {
@@ -288,7 +285,6 @@ namespace HotelApi.Controllers
         /// <response code="401">No tiene autorizacion para realizar la solicitud</response>
         /// <response code="404">Si no existe el registro</response>
         /// <response code="500">Se ha producido un error interno en el servido</response> 
-        //[Authorize(Roles = "admin")]
         [HttpDelete("{id:int}", Name = "DeleteRoom")]
         public async Task<IActionResult> Delete(int id)
         {

@@ -47,7 +47,6 @@ namespace HotelApi.Controllers
         /// <response code="200"> Si se obtiene el listado</response>
         /// <response code="400">Si no encuentra la ruta</response> 
         /// <response code="403">Si la llamada no esta autenticada</response>
-        //[AllowAnonymous] //PARA QUE LO PUEDAN VER SIN AUTORIZACIÓN O SE PUEDE DEJAR EN BLANCO SIN ESTE CAMPO
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -69,10 +68,9 @@ namespace HotelApi.Controllers
         }
 
         /// <summary>
-        /// Obtiene el valor pasando el id por parametro
+        /// Obtiene un registro pasando el id por parametro
         /// </summary>
         /// <param name="id">Id</param>
-        /// <returns>Retorna una raza</returns>
         /// <response code="200"> Si se obtiene el registro</response>
         /// <response code="400">Si no encuentra la ruta</response> 
         /// <response code="403">Si la llamada no esta autenticada</response>
@@ -102,7 +100,6 @@ namespace HotelApi.Controllers
         /// Obtiene un registro pasando el nombre por parametro
         /// </summary>
         /// <param name="name">Nombre</param>
-        /// <returns>Retorna un registro</returns>
         /// <response code="200"> Si se obtiene el registro</response>
         /// <response code="400">Si no encuentra la ruta</response> 
         /// <response code="403">Si la llamada no esta autenticada</response>
@@ -132,12 +129,10 @@ namespace HotelApi.Controllers
         /// Obtienen los hoteles de una ciudad pasando el id de la ciudad por parametro
         /// </summary>
         /// <param name="cityId">cityId</param>
-        /// <returns>Retorna una raza</returns>
         /// <response code="200"> Si se obtiene el registro</response>
         /// <response code="400">Si no encuentra la ruta</response> 
         /// <response code="403">Si la llamada no esta autenticada</response>
         /// <response code="404">Si no existe el registro</response>
-        //[HttpGet("{cityId:int}", Name = "GetHotelInCity")]
         [HttpGet("GetHotelInCity/{cityId:int}")]
         public async Task<IActionResult> GetHotelInCity(int cityId)
         {
@@ -168,12 +163,10 @@ namespace HotelApi.Controllers
         /// Obtienen los hoteles de una ciudad pasando el id del tipo  de hotel por parametro
         /// </summary>
         /// <param name="typeId">typeId</param>
-        /// <returns>Retorna los registros</returns>
         /// <response code="200"> Si se obtiene el registro</response>
         /// <response code="400">Si no encuentra la ruta</response> 
         /// <response code="403">Si la llamada no esta autenticada</response>
         /// <response code="404">Si no existe el registro</response>
-        //[HttpGet("{typeId:int}", Name = "GetHotelInType")]
         [HttpGet("GetHotelInType/{typeId:int}")]
         public async Task<IActionResult> GetHotelInType(int typeId)
         {
@@ -280,7 +273,6 @@ namespace HotelApi.Controllers
         /// <response code="400">Si la solicitud es incorrecta</response> 
         /// <response code="401">No tiene autorizacion para realizar la solicitud</response>
         /// <response code="500">Se ha producido un error interno en el servidor</response>
-        // [Authorize(Roles = "admin")]
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] HotelDto model)
         {
@@ -359,7 +351,6 @@ namespace HotelApi.Controllers
         /// <response code="401">No tiene autorizacion para realizar la solicitud</response>
         /// <response code="404">Si no existe el registro</response>
         /// <response code="500">Se ha producido un error interno en el servido</response> 
-        //[Authorize(Roles = "admin")]
         [HttpDelete("{id:int}", Name = "DeleteHotel")]
         public async Task<IActionResult> Delete(int id)
         {

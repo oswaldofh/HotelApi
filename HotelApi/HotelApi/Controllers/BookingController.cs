@@ -43,12 +43,11 @@ namespace HotelApi.Controllers
 
 
         /// <summary>
-        /// Obtiene todos los registros
+        /// Obtiene todos los registros de las reservas
         /// </summary>
         /// <response code="200"> Si se obtiene el listado</response>
         /// <response code="400">Si no encuentra la ruta</response> 
         /// <response code="403">Si la llamada no esta autenticada</response>
-        //[AllowAnonymous] //PARA QUE LO PUEDAN VER SIN AUTORIZACIÓN O SE PUEDE DEJAR EN BLANCO SIN ESTE CAMPO
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -73,7 +72,6 @@ namespace HotelApi.Controllers
         /// Obtiene el valor pasando el id por parametro
         /// </summary>
         /// <param name="id">Id</param>
-        /// <returns>Retorna una raza</returns>
         /// <response code="200"> Si se obtiene el registro</response>
         /// <response code="400">Si no encuentra la ruta</response> 
         /// <response code="403">Si la llamada no esta autenticada</response>
@@ -103,12 +101,10 @@ namespace HotelApi.Controllers
         /// Obtiene un registro pasando el documento por parametro
         /// </summary>
         /// <param name="document">Documento</param>
-        /// <returns>Retorna un registro</returns>
         /// <response code="200"> Si se obtiene el registro</response>
         /// <response code="400">Si no encuentra la ruta</response> 
         /// <response code="403">Si la llamada no esta autenticada</response>
         /// <response code="404">Si no existe el registro</response>
-        //[HttpGet("{document}", Name = "GetBookingByDocument")]
         [HttpGet("GetBookingByDocument/{document}")]
         public async Task<IActionResult> GetBookingByDocument(string document)
         {
@@ -134,7 +130,6 @@ namespace HotelApi.Controllers
         /// Añade un registro
         /// </summary>
         /// <param name="model">CreateBookingDto</param>
-        /// <returns>Retorna el registro creado</returns>
         /// <response code="201">Se ha creado correctamente un nuevo registro</response>
         /// <response code="400">Si la solicitud es incorrecta</response> 
         /// <response code="401">No tiene autorizacion para realizar la solicitud</response>
@@ -219,7 +214,6 @@ namespace HotelApi.Controllers
         /// Actualiza un registro
         /// </summary>
         /// <param name="model">BookingDto</param>
-        /// <returns>Retorna el registro acutlizado</returns>
         /// <response code="200">Se ha actualizado correctamente el registro</response>
         /// <response code="400">Si la solicitud es incorrecta</response> 
         /// <response code="401">No tiene autorizacion para realizar la solicitud</response>
@@ -299,7 +293,6 @@ namespace HotelApi.Controllers
         /// <response code="401">No tiene autorizacion para realizar la solicitud</response>
         /// <response code="404">Si no existe el registro</response>
         /// <response code="500">Se ha producido un error interno en el servido</response> 
-        //[Authorize(Roles = "admin")]
         [HttpDelete("{id:int}", Name = "DeleteBooking")]
         public async Task<IActionResult> Delete(int id)
         {
